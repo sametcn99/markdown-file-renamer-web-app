@@ -2,11 +2,13 @@
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Card, CardBody, Button } from "@nextui-org/react";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { uploadFiles } from "../libs/upload-files";
+import { UploadFiles } from "../libs/upload-files";
+import { useRouter } from "next/navigation";
 
 const FileUpload = () => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]); // Change the type to File[]
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter(); // Next.js router
   const onDrop = useCallback((acceptedFiles: File[]) => {
     // Change the type here too
     setUploadedFiles(acceptedFiles);
@@ -17,6 +19,13 @@ const FileUpload = () => {
       "text/md": [".md", ".mdx"],
     },
   });
+
+  const uploadClick = async () => {
+    await UploadFiles(uploadedFiles);
+    setIsLoading(false);
+    router.push("/editor");
+  };
+
   return (
     <>
       <Card>
@@ -41,13 +50,7 @@ const FileUpload = () => {
           </li>
         ))}
       </ul>
-      <Button
-        onClick={() => {
-          uploadFiles(uploadedFiles);
-        }}
-      >
-        Button
-      </Button>
+      <Button onClick={uploadClick}>Go Editor</Button>
     </>
   );
 };
