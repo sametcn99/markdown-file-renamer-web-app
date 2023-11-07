@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Card, CardBody, Button } from "@nextui-org/react";
@@ -11,7 +11,12 @@ const FileUpload = () => {
     // Change the type here too
     setUploadedFiles(acceptedFiles);
   }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      "text/md": [".md", ".mdx"],
+    },
+  });
   return (
     <>
       <Card>
