@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rename Markdown Files Using Frontmatter Title
 
-## Getting Started
+This project is a web application that allows users to upload one or more Markdown files and rename the files based on the "title" in the frontmatter section of the files. This site is created as a Next.js project and developed using TypeScript and Supabase.
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To try the project online, you can visit the following demo link: [Demo Link](https://markdown-file-renamer-web-app.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is developed using the following technologies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Next.js](https://nextjs.org/): A fast and customizable framework for building web applications using React.
+- [TypeScript](https://www.typescriptlang.org/): A powerful and type-safe programming language.
+- [Supabase](https://supabase.io/): An open-source platform that provides database and authentication services.
 
-## Learn More
+## Contribution
 
-To learn more about Next.js, take a look at the following resources:
+If you'd like to contribute to this project, please follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the project.
+2. Add a new feature or fix a bug.
+3. Upload your changes (push).
+4. Create a pull request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the [MIT License](LICENSE). For more information, please review the license file.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any questions or feedback, please don't hesitate to reach out to us at [your email address](mailto:YOUR_EMAIL_ADDRESS).
+
+## Things to do 
+- If multiple files are uploaded, download all of them in a zip file.
