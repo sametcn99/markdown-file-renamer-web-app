@@ -29,7 +29,7 @@ This project is licensed under the [GPL-3.0 License](LICENSE). For more informat
 
 ## Contact
 
-If you have any questions or feedback, please don't hesitate to reach out to us at [your email address](mailto:YOUR_EMAIL_ADDRESS).
+If you have any questions or feedback, please don't hesitate to reach out to me.
 
 ## Things to do 
 - If multiple files are uploaded, download all of them in a zip file.
