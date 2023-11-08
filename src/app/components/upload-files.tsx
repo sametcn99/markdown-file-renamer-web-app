@@ -51,7 +51,7 @@ const FileUpload = () => {
       <Card>
         <CardBody
           {...getRootProps()}
-          className="flex justify-center items-center w-full h-24 text-center select-none max-w-[20rem] dropzone"
+          className="flex justify-center items-center w-[20rem] h-24 text-center select-none max-w-[20rem] dropzone"
         >
           <input {...getInputProps()} />
           {isDragActive ? (
