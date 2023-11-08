@@ -1,3 +1,4 @@
+// Import necessary libraries and modules
 import {
   SupabaseClient,
   createClientComponentClient,
@@ -6,8 +7,9 @@ import matter from "gray-matter";
 import JSZip from "jszip";
 import TextRegex from "./text-regex";
 import DeleteFiles from "./delete-files";
+import getDateTime from "../utils/get-date";
 
-// This is the main function for downloading multiple files
+// Main function for downloading multiple files
 export default async function downloadMultipleFiles(data: any) {
   // Create a Supabase client
   const supabase = createClientComponentClient();
@@ -21,7 +23,7 @@ export default async function downloadMultipleFiles(data: any) {
   // Create a hidden anchor element to trigger the download
   const a = document.createElement("a");
   a.href = url;
-  a.download = "multiple_files.zip"; // You can set the name of the ZIP file
+  a.download = `${getDateTime()}_renamed_files`; // You can set the name of the ZIP file
   a.style.display = "none";
 
   // Add the anchor element to the document's body and trigger the download
@@ -37,6 +39,7 @@ async function createZipFile(
   data: any,
   supabase: SupabaseClient<any, "public", any>
 ) {
+  // Create a new instance of JSZip
   const zip = new JSZip();
 
   // Iterate through each file name in the data array
@@ -54,10 +57,12 @@ async function createZipFile(
       // Parse the text using gray-matter to extract the title
       const matterResult = matter(text);
       const title = matterResult.data.title;
-
+      const filePath = `${TextRegex(title)}.md`;
       // Add the text to the ZIP file with a sanitized title
-      zip.file(`${TextRegex(title)}.md`, text);
-      console.log("File added to ZIP: " + title);
+      zip.file(filePath, text);
+      console.log("File added to ZIP: " + filePath);
+
+      // Delete the file from Supabase after adding it to the ZIP
       await DeleteFiles(fileName);
     }
   }

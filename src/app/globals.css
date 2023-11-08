@@ -1,27 +1,36 @@
+/* Tailwind CSS styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom CSS variables for color customization */
 :root {
   --foreground-rgb: 0, 0, 0;
+  /* Default text color: black */
   --background-start-rgb: 214, 219, 220;
+  /* Default background gradient start color: light gray */
   --background-end-rgb: 255, 255, 255;
+  /* Default background gradient end color: white */
 }
 
+/* Media query for dark mode preference */
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
+    /* Dark mode text color: white */
     --background-start-rgb: 0, 0, 0;
+    /* Dark mode background gradient start color: black */
     --background-end-rgb: 0, 0, 0;
+    /* Dark mode background gradient end color: black */
   }
 }
 
+/* Body styling */
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  /* Set text color based on custom variable */
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  /* Set background gradient based on custom variables */
 }
