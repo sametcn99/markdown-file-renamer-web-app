@@ -1,6 +1,6 @@
 {
   "name": "markdown-file-renamer-web-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,7 +13,10 @@
     "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/ssr": "^0.0.9",
     "@supabase/supabase-js": "^2.38.4",
+    "@vercel/analytics": "^1.1.1",
     "framer-motion": "^10.16.4",
+    "gray-matter": "^4.0.3",
+    "marked": "^9.1.5",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",

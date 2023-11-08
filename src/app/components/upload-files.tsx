@@ -1,17 +1,26 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Card, CardBody, Button } from "@nextui-org/react";
 import { UploadFiles } from "../libs/upload-files";
-import { useRouter } from "next/navigation";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@nextui-org/react";
 
 const FileUpload = () => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]); // Change the type to File[]
-  const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter(); // Next.js router
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
     // Change the type here too
     setUploadedFiles(acceptedFiles);
+    setIsDisabled(false);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -21,37 +30,54 @@ const FileUpload = () => {
   });
 
   const uploadClick = async () => {
+    setIsLoading(true);
     await UploadFiles(uploadedFiles);
     setIsLoading(false);
-    router.push("/editor");
   };
 
+  useEffect(() => {});
+
   return (
-    <>
+    <div className="flex flex-col justify-center items-center space-y-2 w-full">
       <Card>
         <CardBody
           {...getRootProps()}
-          className="dropzone select-none w-96 text-center h-24 flex justify-center items-center"
+          className="flex justify-center items-center w-full h-24 text-center select-none max-w-[20rem] dropzone"
         >
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p>Sürükleyip bırakın</p>
+            <p>Drag and drop</p>
           ) : (
-            <p>
-              Dosyaları sürükleyip buraya bırakın veya tıklayarak dosya seçin
-            </p>
+            <p>Drag and drop files here or click to select a file</p>
           )}
         </CardBody>
       </Card>
-      <ul>
-        {uploadedFiles.map((file) => (
-          <li key={file.name}>
-            {file.name} - {file.size} bytes
-          </li>
-        ))}
-      </ul>
-      <Button onClick={uploadClick}>Go Editor</Button>
-    </>
+      <Table
+        aria-label="Example static collection table"
+        className="max-w-[20rem]"
+      >
+        <TableHeader>
+          <TableColumn>NAME</TableColumn>
+          <TableColumn>SIZE</TableColumn>
+        </TableHeader>
+        <TableBody>
+          {uploadedFiles.map((file) => (
+            <TableRow key="1" className="font-bold text-black">
+              <TableCell>{file.name}</TableCell>
+              <TableCell>{file.size}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <Button
+        isLoading={isLoading}
+        isDisabled={isDisabled}
+        onClick={uploadClick}
+        className="w-full max-w-[20rem]"
+      >
+        Rename Files
+      </Button>
+    </div>
   );
 };
 
