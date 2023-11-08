@@ -25,7 +25,16 @@ const FileUpload = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      "text/md": [".md", ".mdx", ".markdown",".text","mdtxt","mdtext","mkd", "mdown"],
+      "text/markdown": [
+        ".md",
+        ".mdx",
+        ".markdown",
+        ".text",
+        ".mdtxt",
+        ".mdtext",
+        ".mkd",
+        ".mdown",
+      ],
     },
   });
 
@@ -62,7 +71,7 @@ const FileUpload = () => {
         </TableHeader>
         <TableBody>
           {uploadedFiles.map((file) => (
-            <TableRow key="1" className="font-bold text-black">
+            <TableRow key={file.name} className="font-bold text-black">
               <TableCell>{file.name}</TableCell>
               <TableCell>{file.size}</TableCell>
             </TableRow>
