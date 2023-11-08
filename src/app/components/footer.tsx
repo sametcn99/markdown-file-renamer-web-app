@@ -6,6 +6,8 @@ export default function Footer() {
       <a
         href="https://github.com/sametcn99/markdown-file-renamer-web-app"
         className="text-blue-600"
+        target="_blank"
+        rel="noreferrer"
       >
         Github
       </a>
