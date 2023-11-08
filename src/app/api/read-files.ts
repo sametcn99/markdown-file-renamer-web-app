@@ -23,7 +23,7 @@ export default async function readFiles() {
 
     // Create an array to store the names of files to be downloaded
     const fileNames = data?.map((element) => element.name);
-    console.log(fileNames);
+    console.log("Uploaded all Files" + `(${fileNames?.length})\n` + fileNames);
     // Call the downloadMultipleFiles function to download multiple files as a zip
     if (fileNames && fileNames.length > 1) {
       await downloadMultipleFiles(fileNames);

@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Card, CardBody, Button } from "@nextui-org/react";
-import { UploadFiles } from "../libs/upload-files";
+import { UploadFiles } from "../api/upload-files";
 import {
   Table,
   TableHeader,

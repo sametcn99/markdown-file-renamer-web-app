@@ -28,7 +28,7 @@ export default async function DownloadFiles(name: any) {
 
       // Create a Blob from the downloaded text and set its type as "text/markdown"
       const blob = new Blob([text], { type: "text/markdown" });
-
+      console.log("File Renamed successfully: " + TextRegex(title));
       // Create a download link for the Blob content
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");

@@ -57,6 +57,7 @@ async function createZipFile(
 
       // Add the text to the ZIP file with a sanitized title
       zip.file(`${TextRegex(title)}.md`, text);
+      console.log("File added to ZIP: " + title);
       await DeleteFiles(fileName);
     }
   }

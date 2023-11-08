@@ -16,5 +16,7 @@ export default async function DeleteFiles(name: any) {
       error.stack,
       error.cause
     );
+  } else {
+    console.log("File deleted from Database: " + name);
   }
 }

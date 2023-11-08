@@ -20,5 +20,6 @@ export default function TextRegex(text: string) {
     .replace(/[^a-zA-Z0-9-]/g, "-")
     .replace(/ /g, "-")
     .replace(/-+/g, "-"); // Replace consecutive hyphens with a single hyphen
+  console.log("File Regex: " + convertedString + "\nOriginal text: " + text);
   return convertedString;
 }
