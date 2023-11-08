@@ -8,7 +8,9 @@ export default async function DownloadFiles(name: any) {
 
   try {
     // Download the file with the specified name from the "mdfiles" storage
-    const { data, error } = await supabase.storage.from("mdfiles").download(name);
+    const { data, error } = await supabase.storage
+      .from("mdfiles")
+      .download(name);
 
     if (error) {
       // Log an error message if there's an error during file download

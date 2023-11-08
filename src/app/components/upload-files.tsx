@@ -25,7 +25,7 @@ const FileUpload = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      "text/md": [".md", ".mdx"],
+      "text/md": [".md", ".mdx", ".markdown",".text","mdtxt","mdtext","mkd", "mdown"],
     },
   });
 
@@ -75,7 +75,7 @@ const FileUpload = () => {
         onClick={uploadClick}
         className="w-full max-w-[20rem]"
       >
-        Rename Files
+        {isLoading ? "Please Wait..." : "Download"}
       </Button>
     </div>
   );

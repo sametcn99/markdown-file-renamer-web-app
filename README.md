@@ -32,4 +32,5 @@ This project is licensed under the [GPL-3.0 License](LICENSE). For more informat
 If you have any questions or feedback, please don't hesitate to reach out to me.
 
 ## Things to do 
-- If multiple files are uploaded, download all of them in a zip file.
+- [x] If multiple files are uploaded, download all of them in a zip file.
+- [ ] Create a better UI
