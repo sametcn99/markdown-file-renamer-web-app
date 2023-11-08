@@ -25,7 +25,7 @@ If you'd like to contribute to this project, please follow these steps:
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). For more information, please review the license file.
+This project is licensed under the [GPL-3.0 License](LICENSE). For more information, please review the license file.
 
 ## Contact
 
