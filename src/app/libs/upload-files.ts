@@ -1,5 +1,6 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import readFiles from "./read-files";
+import TextRegex from "./text-regex";
 
 export let randomValue = 0;
 
@@ -22,7 +23,7 @@ export const UploadFiles = async (uploadedFiles: File[]) => {
       // Upload the file to Supabase storage
       const { data, error } = await supabase.storage
         .from("mdfiles")
-        .upload(filePath, file, {
+        .upload(TextRegex(filePath), file, {
           cacheControl: "3600", // Cache control for the file
           upsert: false, // Do not overwrite the file if it already exists
         });
