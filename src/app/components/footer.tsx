@@ -2,10 +2,7 @@
 // Footer component providing information and a link to the source code on GitHub
 export default function Footer() {
   return (
-    <p className="bottom-4 text-xs font-light text-center">
-      We upload your files to the database, but we do not store them. <br />
-      You can monitor the background processes in your browser's developer
-      console. <br />
+    <p className="bottom-4 text-center">
       Check out the source code on {/* GitHub link with styling */}
       <a
         href="https://github.com/sametcn99/markdown-file-renamer-web-app"

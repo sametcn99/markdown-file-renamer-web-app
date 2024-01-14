@@ -25,13 +25,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} flex flex-col justify-center items-center min-h-screen`}
+      >
         {/* Main content container with flex layout */}
-        <main className="flex flex-col justify-center items-center py-20 space-y-2 min-h-screen">
-          {children} {/* Render child components */}
-          <Footer /> {/* Render Footer component at the bottom */}
+        <main className="md:w-[40rem] sm:w-[30rem] flex flex-col gap-2 break-all transition-all duration-1000">
+          {children}
+          <Footer />
         </main>
-        <Analytics /> {/* Include Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );
